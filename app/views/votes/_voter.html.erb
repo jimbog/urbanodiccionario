@@ -1,0 +1,4 @@
+<div>
+  <%= link_to 'vote up',  word_up_vote_path(word)  %><%="(#{ word.up_votes})" %>
+  <%= link_to 'vote down', word_down_vote_path(word) %><%= "(#{ word.down_votes})" %>
+</div>

@@ -10,5 +10,6 @@
     <em><%= word.example %></em>
   </div>
 
+  <%= render partial: 'votes/voter', locals: {word: word}%>
 
 <% end %>
