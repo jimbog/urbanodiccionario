@@ -25,7 +25,12 @@ class WordsController < ApplicationController
   # POST /words
   # POST /words.json
   def create
+    Rails.logger.debug "DEBUG: params are #{params}"
+    Rails.logger.debug "DEBUG: author params are #{params[:author]}"
+    Rails.logger.debug "DEBUG: word_params are #{word_params}"
+
     @word = Word.new(word_params)
+    @author = @word.build_author(:email => author_params[:email], :pseudonym => author_params[:pseudonym])
 
     respond_to do |format|
       if @word.save
@@ -63,13 +68,17 @@ class WordsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_word
-      @word = Word.friendly.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_word
+    @word = Word.friendly.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def word_params
-      params.require(:word).permit(:name, :definition, :example)
-    end
+  def author_params
+   params[:author] 
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def word_params
+    params.require(:word).permit(:name, :definition, :example, author: [:pseudonym, :email])
+  end
 end

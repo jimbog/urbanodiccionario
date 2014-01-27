@@ -10,6 +10,11 @@
     <em><%= word.example %></em>
   </div>
 
+
+  <div class="example">
+    <em><%="Creado por #{word.author.pseudonym}"%></em>
+  </div>
+
   <%= render partial: 'votes/voter', locals: {word: word}%>
 
 <% end %>
