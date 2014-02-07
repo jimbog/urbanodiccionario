@@ -19,6 +19,8 @@ class Word < ActiveRecord::Base
 
 
   def generate_token(column)
-      self[column] = SecureRandom.urlsafe_base64
+    begin
+      self[column] = SecureRandom.uuid
+    end  while Word.exists?(column => self[column]) 
   end
 end
