@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140127005535) do
+ActiveRecord::Schema.define(version: 20140207203350) do
 
   create_table "authors", force: true do |t|
     t.string   "pseudonym"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 20140127005535) do
     t.datetime "updated_at"
     t.string   "slug"
     t.integer  "author_id"
+    t.string   "token"
+    t.boolean  "verified",   default: false
   end
 
   add_index "words", ["slug"], name: "index_words_on_slug", unique: true

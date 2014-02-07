@@ -20,18 +20,18 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'database_cleaner', '~>0.9.1'
   #gem 'spork', "> 0.9.0.rc"
-
-	gem 'better_errors'
-	gem 'quiet_assets'
-	gem 'rails_layout'
-	gem 'sqlite3'
-	gem 'awesome_print', :require => 'ap'
-	gem 'pry-rails'
+  gem 'therubyracer'
+  gem 'better_errors'
+  gem 'quiet_assets'
+  gem 'rails_layout'
+  gem 'sqlite3'
+  gem 'awesome_print', :require => 'ap'
+  gem 'pry-rails'
 end
 
 group :production do
-	gem 'pg'
-	gem 'rails_12factor'
-	gem 'thin'
+  gem 'pg'
+  gem 'rails_12factor'
+  gem 'thin'
 end
 

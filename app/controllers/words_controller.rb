@@ -10,7 +10,7 @@ class WordsController < ApplicationController
   # GET /words/1
   # GET /words/1.json
   def show
-    @words = Word.where("name like ?", @word.name) 
+    @words = Word.where("name like ? AND verified = ?", @word.name, true)
   end
 
   # GET /words/new

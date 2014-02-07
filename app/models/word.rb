@@ -15,5 +15,4 @@ class Word < ActiveRecord::Base
   def down_votes
     self.votes.where(value: -1).count
   end
-
 end
